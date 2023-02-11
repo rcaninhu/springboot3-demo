@@ -1,4 +1,4 @@
-package net.rcan.demo.study
+package net.rcan.demo.domain.study
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -36,19 +36,3 @@ class StudyService(
 
 }
 
-
-@RequestMapping("/api/study")
-@RestController
-class StudyController(
-    private val studyService: StudyService
-) {
-    @GetMapping("")
-    fun getAll() = studyService.getAll()
-
-    @PostMapping("")
-    fun saveStudy(
-        @RequestBody
-        saveStudy: Study
-    ) = studyService.saveStudy(saveStudy)
-
-}
