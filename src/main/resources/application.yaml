@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: demo
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: mysql
+  datasource:
+    username: study
+    password: docker!!
+    connection-test-query: SELECT 1
+    url: jdbc:mysql://localhost/study?serverTimezone=Asia/Seoul&characterEncoding=utf8
+
+
+
+server:
+  port: 18888
+
+logging:
+  pattern:
+    console: "[%level]  [%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}]  %X{traceId:-} %X{spanId:-}  %X{exportable:-}  [${spring.application.name}]  [%logger{0}]  %message%n%xException"
