@@ -1,9 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.0.2"
+    id("org.springframework.boot") version "3.0.3"
     id("io.spring.dependency-management") version "1.1.0"
     id("org.owasp.dependencycheck") version "7.3.2"
+    id("com.bmuschko.docker-spring-boot-application") version "9.2.1"
     kotlin("jvm") version "1.8.0"
     kotlin("plugin.spring") version "1.8.0"
     kotlin("plugin.jpa") version "1.8.0"
@@ -42,4 +43,17 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.named("bootJar") {
+    enabled = false
+}
+
+
+docker {
+    springBootApplication {
+        baseImage.set("gradle:jdk17")
+        ports.set(listOf())
+        images.set(listOf("inhu00/sample-springboot3-kotlin:0.0.1","inhu00/sample-springboot3-kotlin:latest"))
+    }
 }
