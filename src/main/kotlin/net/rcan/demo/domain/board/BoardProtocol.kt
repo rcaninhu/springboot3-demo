@@ -34,7 +34,7 @@ data class BoardUpdateResponse(
 )
 
 data class BoardSearchRequest(
-    val title: String,
+    val title: String?,
 )
 
 data class BoardSearchResponse(

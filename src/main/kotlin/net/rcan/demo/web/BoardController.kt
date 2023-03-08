@@ -20,7 +20,6 @@ class BoardController(
                 ResponseEntity.noContent().build()
             }
         }
-
     @GetMapping("/{boardId}")
     fun detailBoard(
         @PathVariable("boardId") board: Board?

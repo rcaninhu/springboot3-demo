@@ -27,6 +27,10 @@ data class Board(
 interface BoardRepository : JpaRepository<Board, Long> {
     fun findByActiveAndTitleStartsWith(
         active: Boolean? = true,
-        titleStartWidth: String
+        titleStartWidth: String?
+    ): List<Board>
+
+    fun findByActive(
+        active: Boolean? = true,
     ): List<Board>
 }

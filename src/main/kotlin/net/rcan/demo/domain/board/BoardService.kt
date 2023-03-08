@@ -30,15 +30,28 @@ class BoardService(
     fun searchBoard(
         boardSearchRequest: BoardSearchRequest
     ): List<BoardSearchResponse> =
-        boardRepository.findByActiveAndTitleStartsWith(titleStartWidth = boardSearchRequest.title)
-            .map {
-                BoardSearchResponse(
-                    id = it.id,
-                    writeDate = it.createdDate!!.format(DateTimeFormatter.ISO_DATE),
-                    title = it.title,
-                    contents = it.contents
-                )
-            }
+        boardSearchRequest.title?.let {
+            boardRepository.findByActiveAndTitleStartsWith(titleStartWidth = boardSearchRequest.title)
+                .map {
+                    BoardSearchResponse(
+                        id = it.id,
+                        writeDate = it.createdDate!!.format(DateTimeFormatter.ISO_DATE),
+                        title = it.title,
+                        contents = it.contents
+                    )
+                }
+        } ?: let {
+            boardRepository.findByActive()
+                .map {
+                    BoardSearchResponse(
+                        id = it.id,
+                        writeDate = it.createdDate!!.format(DateTimeFormatter.ISO_DATE),
+                        title = it.title,
+                        contents = it.contents
+                    )
+                }
+        }
+
 
     @Transactional
     fun updateBoard(board: Board, boardUpdateResponse: BoardUpdateResponse) {
