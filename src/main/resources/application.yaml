@@ -5,7 +5,7 @@ spring:
   application:
     name: demo
   profiles:
-    active: ${APPLICATION_PROFILE:test}
+    active: ${APPLICATION_PROFILE:local}
 
 logging:
   pattern:
