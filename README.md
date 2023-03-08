@@ -2,6 +2,17 @@
 
 [rCan Blog - Springboot JPA kotlin](https://rcan.net/128)
 
+> [Update] 2023.03.08
+>
+> 프로파일 추가
+> 
+> - local, test 로 분리.
+> 
+> Dependencies ADD
+>
+> - runtimeOnly("com.h2database:h2") // h2 추가. 
+
+
 > [Update] 2023.02.25
 >
 > <B>OWASP 디펜던시 체크 플러그인 추가</B>
