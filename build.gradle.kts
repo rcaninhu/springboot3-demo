@@ -33,6 +33,8 @@ dependencies {
     runtimeOnly("com.h2database:h2")
 
 
+    implementation("com.thedeanda:lorem:1.2")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
