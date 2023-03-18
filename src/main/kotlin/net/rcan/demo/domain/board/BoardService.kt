@@ -90,5 +90,13 @@ class BoardService(
         }
     }
 
+    fun init() {
+        if( boardRepository.count() < 1){
+            Board(title ="안녕하세요", contents = "반갑습니다").also {
+                boardRepository.save(it)
+            }
+        }
+    }
+
 
 }

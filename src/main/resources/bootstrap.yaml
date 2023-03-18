@@ -1,0 +1,26 @@
+server:
+  port: ${APPLICATION_HTTP_PORT:0}
+
+spring:
+  profiles:
+    active: ${APPLICATION_PROFILE:local}
+  application:
+    name: demo
+  cloud:
+    consul:
+      enabled: false
+      host: ${CONSUL_HOST:host.docker.internal}
+      discovery:
+        ip-address: ${APPLICATION_HOST:host.docker.internal}
+        health-check-critical-timeout: 30s
+        tags:
+          - application=${spring.application.name}
+          - prom.metrics=true
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    path: /api-docs
