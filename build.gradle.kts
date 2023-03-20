@@ -38,6 +38,8 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter")
     implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
 
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+
 
     // openapi - swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3")

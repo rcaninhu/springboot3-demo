@@ -24,3 +24,18 @@ springdoc:
   api-docs:
     enabled: true
     path: /api-docs
+
+
+logging:
+  pattern:
+    console: "[%level]  [%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}]  %X{traceId:-} %X{spanId:-}  %X{exportable:-}  [${spring.application.name}]  [%logger{0}]  %message%n%xException"
+
+management:
+  endpoints:
+    prometheus:
+      enabled: true
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
