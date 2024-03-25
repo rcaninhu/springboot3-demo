@@ -5,11 +5,13 @@ spring:
       on-profile: local
   jpa:
     hibernate:
-      ddl-auto: create
-    database: h2
+      ddl-auto: update
+    database: mysql
   datasource:
-    username: sa
-    url: jdbc:h2:mem:testdb
+    username: study
+    password: docker!!
+    url: jdbc:mysql://host.docker.internal/study?serverTimezone=Asia/Seoul&characterEncoding=utf8
+
 
 ---
 spring:
@@ -23,6 +25,5 @@ spring:
   datasource:
     username: study
     password: docker!!
-    connection-test-query: SELECT 1
     url: jdbc:mysql://host.docker.internal/study?serverTimezone=Asia/Seoul&characterEncoding=utf8
 
